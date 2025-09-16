@@ -6,7 +6,7 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/jrabinovitz-ideal/Gray
 
 Expand-Archive -LiteralPath 'c:\windows\temp\winlogbeat.zip' -DestinationPath c:\PROGRA~1\
 
-Move-Item -Path C:\Windows\Temp\winlogbeat.yml -DestinationPath C:\PROGRA~1\winlogbeat-7.16.2-windows-x86_64\ -Force
+Move-Item -Path C:\Windows\Temp\winlogbeat.yml -DestinationPath 'C:\Program Files\winlogbeat-7.16.2-windows-x86_64\' -Force
 
 Invoke-Command -ScriptBlock {C:\PROGRA~1\winlogbeat-7.16.2-windows-x86_64\install-service-winlogbeat.ps1}
 
