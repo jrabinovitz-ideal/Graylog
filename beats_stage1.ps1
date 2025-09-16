@@ -4,10 +4,10 @@ Invoke-WebRequest -Uri 'https://artifacts.elastic.co/downloads/beats/winlogbeat/
 
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/jrabinovitz-ideal/Graylog/refs/heads/main/winlogbeat.yml' -Outfile "C:\Windows\Temp\winlogbeat.yml"
 
-Expand-Archive -LiteralPath 'c:\windows\temp\winlogbeat.zip' -DestinationPath c:\PROGRA~1\
+Expand-Archive -LiteralPath 'c:\windows\temp\winlogbeat.zip' -DestinationPath 'C:\Program Files\'
 
 Move-Item -Path C:\Windows\Temp\winlogbeat.yml -DestinationPath 'C:\Program Files\winlogbeat-7.16.2-windows-x86_64\' -Force
 
-Invoke-Command -ScriptBlock {C:\PROGRA~1\winlogbeat-7.16.2-windows-x86_64\install-service-winlogbeat.ps1}
+Invoke-Command -ScriptBlock {'C:\Program Files\winlogbeat-7.16.2-windows-x86_64\install-service-winlogbeat.ps1'}
 
 Start-Service -Name winlogbeat
