@@ -1,0 +1,17 @@
+output.logstash:
+  hosts:
+    - 10.2.0.5:5044
+
+winlogbeat.event_logs:
+  - name: Security
+    event_id: -4689, -5158, -5157 
+  - name: Application
+    ignore_older: 720h
+  - name: System
+  - name: "Windows PowerShell"
+    event_id: -501 
+  - name: "Microsoft-Windows-TaskScheduler/Operational"
+  - name: "Microsoft-Windows-PowerShell/Operational"
+    event_id: -4105, -4106
+  - name: Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+    include_xml: true
