@@ -4,6 +4,6 @@ Invoke-WebRequest -Uri 'https://artifacts.elastic.co/downloads/beats/winlogbeat/
 
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/jrabinovitz-ideal/Graylog/refs/heads/main/winlogbeat.yml' -Outfile "C:\Windows\Temp\"
 
-Expand-Archive -LiteralPath 'c:\windows\temp\winlogbeat.zip' -DestinationPath C:\Windows\Temp\
+Expand-Archive -LiteralPath 'c:\windows\temp\winlogbeat.zip' -DestinationPath C:\
 
 #Invoke-Command -ScriptBlock {c:\windows\temp\CrowdStrike_Installer\FalconSensor_Windows.exe /install /quiet /norestart CID=$CS_CID}
