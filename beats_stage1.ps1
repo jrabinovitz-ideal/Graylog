@@ -2,8 +2,12 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 
 Invoke-WebRequest -Uri 'https://artifacts.elastic.co/downloads/beats/winlogbeat/winlogbeat-7.16.2-windows-x86_64.zip' -Outfile "C:\Windows\Temp\winlogbeat.zip"
 
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/jrabinovitz-ideal/Graylog/refs/heads/main/winlogbeat.yml' -Outfile "C:\Windows\Temp\"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/jrabinovitz-ideal/Graylog/refs/heads/main/winlogbeat.yml' -Outfile "C:\Windows\Temp\winlogbeat.yml"
 
-Expand-Archive -LiteralPath 'c:\windows\temp\winlogbeat.zip' -DestinationPath C:\
+Expand-Archive -LiteralPath 'c:\windows\temp\winlogbeat.zip' -DestinationPath c:\PROGRA~1\
 
-#Invoke-Command -ScriptBlock {c:\windows\temp\CrowdStrike_Installer\FalconSensor_Windows.exe /install /quiet /norestart CID=$CS_CID}
+Move-Item -Path C:\Windows\Temp\winlogbeat.yml -DestinationPath C:\PROGRA~1\winlogbeat-7.16.2-windows-x86_64\ -Force
+
+Invoke-Command -ScriptBlock {C:\PROGRA~1\winlogbeat-7.16.2-windows-x86_64\install-service-winlogbeat.ps1}
+
+Start-Service -Name winlogbeat
