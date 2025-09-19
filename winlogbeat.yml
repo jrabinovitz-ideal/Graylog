@@ -1,6 +1,6 @@
 output.logstash:
   hosts:
-    - 10.2.0.5:5044
+    - 10.2.0.5:5045
 
 winlogbeat.event_logs:
   - name: Security
